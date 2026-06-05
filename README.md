@@ -1,4 +1,4 @@
-# STRMS — Smart Task & Resource Management System
+# STRMS - Smart Task & Resource Management System
 
 
 ## Aperçu
@@ -9,15 +9,15 @@
 
 ## Fonctionnalités
 
-- **Authentification** par rôle — Admin, Manager, Engineer
-- **Gestion complète des tâches** — création, assignation, mise à jour, suppression
-- **Dépendances entre tâches** — graphe DAG avec détection de dépendances circulaires (DFS)
-- **Historique d'audit** — chaque action est tracée avec auteur et horodatage
-- **File de priorité** — les tâches sont ordonnancées par niveau (CRITICAL > HIGH > MEDIUM > LOW)
-- **Graphe de dépendances** — visualisation graphique des relations entre tâches
-- **Rapports exportables** — par statut, par utilisateur, tâches en retard, par priorité
-- **Gestion des utilisateurs** — CRUD avec contrôle d'accès par rôle
-- **Persistance CSV automatique** — sauvegarde après chaque modification (tâches, dépendances, historique)
+- **Authentification** par rôle - Admin, Manager, Engineer
+- **Gestion complète des tâches** - création, assignation, mise à jour, suppression
+- **Dépendances entre tâches** - graphe DAG avec détection de dépendances circulaires (DFS)
+- **Historique d'audit** - chaque action est tracée avec auteur et horodatage
+- **File de priorité** - les tâches sont ordonnancées par niveau (CRITICAL > HIGH > MEDIUM > LOW)
+- **Graphe de dépendances** - visualisation graphique des relations entre tâches
+- **Rapports exportables** - par statut, par utilisateur, tâches en retard, par priorité
+- **Gestion des utilisateurs** - CRUD avec contrôle d'accès par rôle
+- **Persistance CSV automatique** - sauvegarde après chaque modification (tâches, dépendances, historique)
 
 ---
 
@@ -57,8 +57,8 @@ TODO ──► BLOCKED ──► IN_PROGRESS ──► DONE
 
 ## Prérequis
 
-- **JDK 21** — [Télécharger ici](https://www.oracle.com/java/technologies/downloads/#java21)
-- **JavaFX 21** — [Télécharger ici](https://gluonhq.com/products/javafx/)
+- **JDK 21** - [Télécharger ici](https://www.oracle.com/java/technologies/downloads/#java21)
+- **JavaFX 21** - [Télécharger ici](https://gluonhq.com/products/javafx/)
 - **VS Code** avec l'extension *Extension Pack for Java* (recommandé)
 
 ---
@@ -133,9 +133,9 @@ Dans `.vscode/launch.json`, vérifier que le chemin vers JavaFX est correct :
 
 La sauvegarde est **automatique** après chaque opération (ajout, modification, suppression, assignation). Trois fichiers CSV sont maintenus dans `src/data/` :
 
-- `tasks.csv` — données principales des tâches
-- `dependencies.csv` — relations de dépendance entre tâches
-- `history.csv` — journal d'audit complet
+- `tasks.csv` - données principales des tâches
+- `dependencies.csv` - relations de dépendance entre tâches
+- `history.csv` - journal d'audit complet
 
 
 ## Auteur
