@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    xmlns="http://javafx.com/javafx/21"
+      fx:controller="src.controller.TaskFormController"
+      spacing="14" style="-fx-padding: 28; -fx-pref-width: 480;">
+
+    <Label fx:id="formTitle" text="Nouvelle tâche"
+           style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="12" vgap="10">
+        <Label text="Titre *"           GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="titleField"   GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"/>
+
+        <Label text="Description"       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextArea fx:id="descField"     GridPane.rowIndex="1" GridPane.columnIndex="1"
+                  prefRowCount="3" wrapText="true"/>
+
+        <Label text="Priorité *"        GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="priorityCombo" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                  maxWidth="Infinity"/>
+
+        <Label text="Catégorie *"       GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="categoryCombo" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                  maxWidth="Infinity"/>
+
+        <Label text="Échéance"          GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="deadlinePicker" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                    maxWidth="Infinity"/>
+
+        <Label text="Dépend de"         GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <ListView fx:id="dependenciesList" GridPane.rowIndex="5" GridPane.columnIndex="1"
+                  prefHeight="80"/>
+
+        <columnConstraints>
+            <ColumnConstraints minWidth="120"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+    </GridPane>
+
+    <Label fx:id="errorLabel" style="-fx-text-fill: red;" visible="false"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Annuler"    onAction="#handleCancel"/>
+        <Button text="Enregistrer" onAction="#handleSave"
+                style="-fx-background-color: #185FA5; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>

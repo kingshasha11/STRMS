@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+        xmlns="http://javafx.com/javafx/21"
+            fx:controller="src.controller.TaskDetailController"
+            style="-fx-padding: 20;">
+
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 0 0 16 0;">
+            <Button text="← Retour" onAction="#handleBack"/>
+            <Label fx:id="taskTitleLabel" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="assignBtn"   text="Assigner"   onAction="#handleAssign"   visible="false"/>
+            <Button fx:id="startBtn"    text="Démarrer"   onAction="#handleStart"    visible="false"/>
+            <Button fx:id="completeBtn" text="Terminer"   onAction="#handleComplete" visible="false"/>
+            <Button fx:id="deleteBtn"   text="Supprimer"  onAction="#handleDelete"   visible="false"
+                    style="-fx-background-color: #A32D2D; -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.45">
+
+            <!-- Panneau gauche : infos + dépendances -->
+            <VBox spacing="12" style="-fx-padding: 0 12 0 0;">
+                <GridPane hgap="16" vgap="8">
+                    <Label text="Statut"     GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight:bold;"/>
+                    <Label fx:id="statusLabel"   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Priorité"   GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight:bold;"/>
+                    <Label fx:id="priorityLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Catégorie"  GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight:bold;"/>
+                    <Label fx:id="categoryLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Assigné à"  GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight:bold;"/>
+                    <Label fx:id="assigneeLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label text="Échéance"   GridPane.rowIndex="4" GridPane.columnIndex="0" style="-fx-font-weight:bold;"/>
+                    <Label fx:id="deadlineLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <Separator/>
+                <Label text="Description" style="-fx-font-weight: bold;"/>
+                <TextArea fx:id="descArea" editable="false" wrapText="true" prefRowCount="4"/>
+
+                <Separator/>
+                <Label text="Dépendances" style="-fx-font-weight: bold;"/>
+                <ListView fx:id="depsListView" prefHeight="120"/>
+            </VBox>
+
+            <!-- Panneau droit : historique -->
+            <VBox spacing="8" style="-fx-padding: 0 0 0 12;">
+                <Label text="Historique des actions" style="-fx-font-weight: bold;"/>
+                <TableView fx:id="historyTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colTimestamp" text="Date/Heure"  prefWidth="140"/>
+                        <TableColumn fx:id="colUser"      text="Utilisateur" prefWidth="120"/>
+                        <TableColumn fx:id="colAction"    text="Action"      prefWidth="200"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainBorderPane" 
+            fx:controller="src.controller.DashboardController" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            xmlns="http://javafx.com/javafx/21">
+    
+    <left>
+        <VBox spacing="4" style="-fx-padding: 16; -fx-background-color: #2C2C2A;" prefWidth="200">
+            <Label text="STRMS" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+            <Separator/>
+            <Button text="Tableau de bord"  onAction="#showDashboard"  maxWidth="Infinity"/>
+            <Button text="Tâches"           onAction="#showTasks"      maxWidth="Infinity"/>
+            <Button text="Utilisateurs"     onAction="#showUsers"      maxWidth="Infinity" fx:id="usersBtn"/>
+            <Button text="Rapports"         onAction="#showReports"    maxWidth="Infinity"/>
+            <Button text="Notifications"    onAction="#showNotifications" maxWidth="Infinity"/>
+            
+            <Region VBox.vgrow="ALWAYS"/>
+            
+            <Label fx:id="currentUserLabel" style="-fx-text-fill: #aaa;"/>
+            <Button text="Déconnexion" onAction="#handleLogout" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20" style="-fx-padding: 24;">
+            <Label text="Vue d'ensemble" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+            <HBox spacing="16">
+                <VBox fx:id="cardTodo"       styleClass="stat-card"/>
+                <VBox fx:id="cardInProgress" styleClass="stat-card"/>
+                <VBox fx:id="cardBlocked"     styleClass="stat-card"/>
+                <VBox fx:id="cardDone"       styleClass="stat-card"/>
+            </HBox>
+
+            <Label text="Tâches critiques en attente" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="urgentTasksTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colTitle"    text="Titre"    prefWidth="250"/>
+                    <TableColumn fx:id="colPriority" text="Priorité" prefWidth="100"/>
+                    <TableColumn fx:id="colStatus"   text="Statut"   prefWidth="120"/>
+                    <TableColumn fx:id="colAssignee" text="Assigné"  prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+    
+</BorderPane>

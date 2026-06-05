@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    xmlns="http://javafx.com/javafx/21"
+      spacing="12" style="-fx-padding: 16;">
+
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Label text="Graphe des dépendances" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <CheckBox fx:id="showDoneCheckbox" text="Afficher tâches DONE" onAction="#refreshGraph"/>
+        <Button text="Rafraîchir" onAction="#refreshGraph"/>
+    </HBox>
+
+    <!-- Légende -->
+    <HBox spacing="20" style="-fx-padding: 4 0;">
+        <Label text="● TODO"        style="-fx-text-fill: #888;"/>
+        <Label text="● BLOCKED"     style="-fx-text-fill: #BA7517;"/>
+        <Label text="● IN PROGRESS" style="-fx-text-fill: #185FA5;"/>
+        <Label text="● DONE"        style="-fx-text-fill: #3B6D11;"/>
+        <Label text="⚠ Cycle détecté" style="-fx-text-fill: #A32D2D; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <!-- Zone de dessin du graphe -->
+    <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true">
+        <Pane fx:id="graphPane" prefHeight="600" prefWidth="900"/>
+    </ScrollPane>
+
+    <!-- Panneau d'info au clic sur un nœud -->
+    <HBox fx:id="nodeInfoPanel" spacing="12" alignment="CENTER_LEFT"
+          style="-fx-padding: 8; -fx-background-color: #e8f0fb; -fx-background-radius: 6;" visible="false">
+        <Label fx:id="nodeInfoLabel"/>
+        <Button text="Voir détail" onAction="#openTaskDetail"/>
+    </HBox>
+</VBox>

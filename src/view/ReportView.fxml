@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Pos?>
+<?import java.lang.String?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx/21"
+      spacing="16" style="-fx-padding: 20;">
+
+    <fx:define>
+        <ToggleGroup fx:id="reportTypeGroup"/>
+    </fx:define>
+
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Label text="Rapports" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Exporter (.txt)" onAction="#exportReport"
+                style="-fx-background-color: #3B6D11; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Label text="Type de rapport :" style="-fx-font-weight: bold;"/>
+        
+        <RadioButton text="Par statut" toggleGroup="$reportTypeGroup" onAction="#generateReport">
+            <userData><String fx:value="STATUS"/></userData>
+        </RadioButton>
+        
+        <RadioButton text="Par utilisateur" toggleGroup="$reportTypeGroup" onAction="#generateReport">
+            <userData><String fx:value="USER"/></userData>
+        </RadioButton>
+        
+        <RadioButton text="Tâches en retard" toggleGroup="$reportTypeGroup" onAction="#generateReport">
+            <userData><String fx:value="OVERDUE"/></userData>
+        </RadioButton>
+        
+        <RadioButton text="Par priorité" toggleGroup="$reportTypeGroup" onAction="#generateReport">
+            <userData><String fx:value="PRIORITY"/></userData>
+        </RadioButton>
+    </HBox>
+
+    <TextArea fx:id="reportArea" VBox.vgrow="ALWAYS"
+              editable="false" wrapText="true"
+              style="-fx-font-family: 'Courier New', monospace; -fx-font-size: 13; -fx-text-fill: #1E1E1E;"/>
+</VBox>

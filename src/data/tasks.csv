@@ -1,0 +1,6 @@
+id,title,description,priority,status,category,deadline,assignedUserId
+T-69B393,Séminaire,Préparer l'évaluation de,LOW,DONE,RESEARCH,1782770400000,U-004
+T-4D3A5F,POO report,Wrtite the last POO report,CRITICAL,IN_PROGRESS,DOCUMENTATION,1780696800000,U-004
+T-1CDF59,nbbb,bbbb,HIGH,IN_PROGRESS,DOCUMENTATION,1811800800000,U-003
+T-DE3856,Interface implementation,Do the implementation of the differents interfaces,MEDIUM,TODO,DOCUMENTATION,1782770400000,
+T-A78A05,Java presentation,Give a small presentation about java 21,HIGH,TODO,RESEARCH,1782856800000,

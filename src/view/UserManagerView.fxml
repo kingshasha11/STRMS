@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+        xmlns="http://javafx.com/javafx/21"
+      spacing="16" style="-fx-padding: 20;">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Gestion des utilisateurs" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ Ajouter un utilisateur" onAction="#openAddUserDialog"
+                style="-fx-background-color: #185FA5; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TableView fx:id="userTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"    text="ID"    prefWidth="80"/>
+            <TableColumn fx:id="colName"  text="Nom"   prefWidth="160"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="220"/>
+            <TableColumn fx:id="colRole"  text="Rôle"  prefWidth="120"/>
+            <TableColumn fx:id="colTasks" text="Tâches assignées" prefWidth="130"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="120"/>
+        </columns>
+    </TableView>
+</VBox>

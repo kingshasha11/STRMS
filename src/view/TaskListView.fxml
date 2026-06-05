@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+        xmlns="http://javafx.com/javafx/21"
+      spacing="12" style="-fx-padding: 16;">
+
+    <!-- Barre de filtres -->
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher une tâche..." HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="filterStatus"   promptText="Statut"/>
+        <ComboBox fx:id="filterPriority" promptText="Priorité"/>
+        <ComboBox fx:id="filterCategory" promptText="Catégorie"/>
+        <Button text="Nouvelle tâche" onAction="#openTaskForm" fx:id="newTaskBtn"
+                style="-fx-background-color: #185FA5; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Table principale -->
+    <TableView fx:id="taskTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"       text="ID"         prefWidth="80"/>
+            <TableColumn fx:id="colTitle"    text="Titre"      prefWidth="220"/>
+            <TableColumn fx:id="colStatus"   text="Statut"     prefWidth="110"/>
+            <TableColumn fx:id="colPriority" text="Priorité"   prefWidth="100"/>
+            <TableColumn fx:id="colCategory" text="Catégorie"  prefWidth="110"/>
+            <TableColumn fx:id="colAssignee" text="Assigné à"  prefWidth="150"/>
+            <TableColumn fx:id="colDeadline" text="Échéance"   prefWidth="110"/>
+            <TableColumn fx:id="colActions"  text="Actions"    prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <!-- Barre de statut -->
+    <HBox>
+        <Label fx:id="taskCountLabel" style="-fx-text-fill: gray;"/>
+    </HBox>
+</VBox>
